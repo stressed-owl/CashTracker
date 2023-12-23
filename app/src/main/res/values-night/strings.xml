@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CashTracker</string>
+    <string name="zaporizhzhya_logo">Zaporizhzhya logo</string>
+    <string name="cashtracker">CashTracker</string>
+    <string name="expenses">Expenses</string>
+    <string name="incomes">Incomes</string>
+    <string name="fab_expenses_description">Fab that is responsible for adding user\'s expenses</string>
+    <string name="fab_incomes_description">Fab that is responsible for adding user\'s incomes</string>
+    <string name="add">Add</string>
+    <string name="cancel">Cancel</string>
+    <string name="alert_expenses_title">Enter your expenses</string>
+    <string name="alert_incomes_title">Enter your incomes</string>
+    <string name="alert_text_field_amount_hint">Amount</string>
+    <string name="alert_text_field_source_hint">Source</string>
+    <string name="alert_text_field_category_hint">Category</string>
+    <string name="icon_button_to_delete_a_record">Icon button to delete a record</string>
+    <string name="expense">Expense: %1s</string>
+    <string name="income">Income: %1s</string>
+</resources>

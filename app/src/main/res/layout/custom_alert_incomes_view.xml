@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/padding_large">
+
+    <EditText
+        android:id="@+id/incomeAmountEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_large"
+        android:ems="10"
+        android:inputType="text"
+        android:background="@null"
+        android:fontFamily="@font/poppins_light"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:padding="@dimen/padding_large"
+        android:hint="@string/alert_text_field_amount_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/incomeSourceEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_large"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="@string/alert_text_field_source_hint"
+        android:background="@null"
+        android:padding="@dimen/padding_large"
+        android:fontFamily="@font/poppins_light"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/incomeAmountEditText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/incomeAmountEditText"
+        app:layout_constraintTop_toBottomOf="@+id/incomeAmountEditText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
