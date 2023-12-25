@@ -28,7 +28,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Objects;
 
 public class ExpensesFragment extends Fragment implements OnButtonClickListener {
 
@@ -59,7 +58,14 @@ public class ExpensesFragment extends Fragment implements OnButtonClickListener 
         columnNames.add(DBHelper.KEY_EXPENSE_DATE);
 
         cursor = dbHelper.readData(columnNames, DBHelper.EXPENSES_TABLE_NAME);
-        userDataAdapter = new UserDataAdapter(requireContext(), cursor, DBHelper.KEY_EXPENSE_AMOUNT, DBHelper.KEY_EXPENSE_DATE, DBHelper.KEY_EXPENSE_CATEGORY);
+        userDataAdapter = new UserDataAdapter(
+                requireContext(),
+                cursor,
+                DBHelper.KEY_EXPENSE_AMOUNT,
+                DBHelper.KEY_EXPENSE_DATE,
+                DBHelper.KEY_EXPENSE_CATEGORY,
+                R.layout.expenses_list_item
+        );
         userDataAdapter.setOnButtonClickListener(this);
 
         if(cursor.getCount() > 0) {

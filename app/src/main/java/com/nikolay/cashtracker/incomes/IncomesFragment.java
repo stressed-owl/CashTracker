@@ -49,6 +49,7 @@ public class IncomesFragment extends Fragment implements OnButtonClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_incomes, container, false);
+
         noDataFoundTxtView = view.findViewById(R.id.noDataFoundTxtViewIncomes);
         recyclerView = view.findViewById(R.id.incomesRecyclerView);
 
@@ -58,7 +59,14 @@ public class IncomesFragment extends Fragment implements OnButtonClickListener {
         columnNames.add(DBHelper.KEY_INCOME_DATE);
 
         cursor = dbHelper.readData(columnNames, DBHelper.INCOMES_TABLE_NAME);
-        userDataAdapter = new UserDataAdapter(requireContext(), cursor, DBHelper.KEY_INCOME_AMOUNT, DBHelper.KEY_INCOME_DATE, DBHelper.KEY_INCOME_SOURCE);
+        userDataAdapter = new UserDataAdapter(
+                requireContext(),
+                cursor,
+                DBHelper.KEY_INCOME_AMOUNT,
+                DBHelper.KEY_INCOME_DATE,
+                DBHelper.KEY_INCOME_SOURCE,
+                R.layout.incomes_list_item
+        );
         userDataAdapter.setOnButtonClickListener(this);
 
         if(cursor.getCount() > 0) {

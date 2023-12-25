@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,6 +22,8 @@ public class UserDataAdapter extends RecyclerView.Adapter<UserDataAdapter.ViewHo
     private final String amountColumnName;
     private final String keyDate;
     private final String _catSo;
+    @LayoutRes
+    public int listItem = 0;
 
     private OnButtonClickListener onButtonClickListener;
 
@@ -28,12 +31,13 @@ public class UserDataAdapter extends RecyclerView.Adapter<UserDataAdapter.ViewHo
         this.onButtonClickListener = clickListener;
     }
 
-    public UserDataAdapter(Context context, Cursor cursor, String amountColumnName, String keyDate, String catSo) {
+    public UserDataAdapter(Context context, Cursor cursor, String amountColumnName, String keyDate, String catSo, @LayoutRes int listItem) {
         this.context = context;
         this.cursor = cursor;
         this.amountColumnName = amountColumnName;
         this.keyDate = keyDate;
         this._catSo = catSo;
+        this.listItem = listItem;
     }
 
     public void updateCursor(Cursor newCursor) {
@@ -48,7 +52,7 @@ public class UserDataAdapter extends RecyclerView.Adapter<UserDataAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.list_item, parent, false);
+        View view = inflater.inflate(listItem, parent, false);
         return new ViewHolder(view);
     }
 
@@ -56,7 +60,6 @@ public class UserDataAdapter extends RecyclerView.Adapter<UserDataAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         if (cursor.moveToPosition(position)) {
-            int id = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.KEY_EXPENSE_ID));
             int amount = cursor.getInt(cursor.getColumnIndexOrThrow(amountColumnName));
             String date = cursor.getString(cursor.getColumnIndexOrThrow(keyDate));
             String catSo = cursor.getString(cursor.getColumnIndexOrThrow(_catSo));
